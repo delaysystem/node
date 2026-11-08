@@ -1548,7 +1548,9 @@ changes:
 
 * `url` {string} The URL returned by the `resolve` chain
 * `context` {Object}
-  * `conditions` {string\[]} Export conditions of the relevant `package.json`
+  * `conditions` {undefined} Export conditions are not provided to
+    asynchronous `load` hooks. Only `resolve` hooks and synchronous hooks
+    receive `conditions`.
   * `format` {string|null|undefined} The format optionally supplied by the
     `resolve` hook chain. This can be any string value as an input; input values do not need to
     conform to the list of acceptable return values described below.
