@@ -1557,6 +1557,11 @@ closed until the Node.js process exits, regardless of the specified options.
 
 <!-- YAML
 added: v0.9.4
+changes:
+  - version: v26.0.0
+    pr-url: https://github.com/nodejs/node/pull/60441
+    description: Without `size`, `readable.read()` now returns a single
+                 buffered chunk instead of all buffered data.
 -->
 
 * `size` {number} Optional argument to specify how much data to read.
@@ -1573,8 +1578,13 @@ The optional `size` argument specifies a specific number of bytes to read. If
 the stream has ended, in which case all of the data remaining in the internal
 buffer will be returned.
 
-If the `size` argument is not specified, all of the data contained in the
-internal buffer will be returned.
+If the `size` argument is not specified, a single buffered chunk is returned
+instead of all of the buffered data. When an encoding has been specified
+using the `readable.setEncoding()` method, all of the buffered data is
+returned as a string instead. Code that relies on the behavior before
+v26.0.0 can approximate it with
+`readable.read(readable.readableLength)` instead of `readable.read()`;
+in some edge cases it might be necessary to do a `readable.read(0)` first.
 
 The `size` argument must be less than or equal to 1 GiB.
 
