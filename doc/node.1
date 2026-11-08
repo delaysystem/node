@@ -1569,6 +1569,23 @@ The secure heap is disabled by default.
 The secure heap is not available on Windows.
 See \fBCRYPTO_secure_malloc_init\fR for more details.
 .
+.It Fl -security-revert
+Reverts the fix for a security vulnerability, restoring the behavior from
+before the fix was applied. Only fixes that required a \fIbreaking\fR change
+can be reverted, and only with TSC consensus, so the set of vulnerabilities
+that can be reverted varies by release line. On \fBmain\fR the set is always
+empty.
+Each revertable fix is identified by its CVE ID:
+.Bd -literal
+node --security-revert=CVE-2024-1234 index.js
+.Ed
+The flag can be passed multiple times to revert more than one fix. When a
+known CVE ID is reverted, Node.js prints a \fBSECURITY WARNING\fR at startup.
+Passing an unknown CVE ID is a startup error: Node.js prints an error and
+exits without running.
+Reverting a security fix re-exposes the vulnerability. The alias
+\fB--security-reverts\fR is also accepted.
+.
 .It Fl -snapshot-blob Ns = Ns Ar path
 When used with \fB--build-snapshot\fR, \fB--snapshot-blob\fR specifies the path
 where the generated snapshot blob is written to. If not specified, the

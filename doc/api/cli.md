@@ -3119,6 +3119,37 @@ The secure heap is not available on Windows.
 
 See [`CRYPTO_secure_malloc_init`][] for more details.
 
+### `--security-revert`
+
+<!-- YAML
+added: v6.0.0
+changes:
+  - version: v13.0.0
+    pr-url: https://github.com/nodejs/node/pull/29153
+    description: This flag was renamed from `--security-reverts` to
+                 `--security-revert`. `--security-reverts` is kept as an alias.
+-->
+
+Reverts the fix for a security vulnerability, restoring the behavior from
+before the fix was applied. Only fixes that required a _breaking_ change
+can be reverted, and only with TSC consensus, so the set of vulnerabilities
+that can be reverted varies by release line. On `main` the set is always
+empty.
+
+Each revertable fix is identified by its CVE ID:
+
+```bash
+node --security-revert=CVE-2024-1234 index.js
+```
+
+The flag can be passed multiple times to revert more than one fix. When a
+known CVE ID is reverted, Node.js prints a `SECURITY WARNING` at startup.
+Passing an unknown CVE ID is a startup error: Node.js prints an error and
+exits without running.
+
+Reverting a security fix re-exposes the vulnerability. The alias
+`--security-reverts` is also accepted.
+
 ### `--snapshot-blob=path`
 
 <!-- YAML
@@ -4899,8 +4930,6 @@ done
 ### `--perf-prof-unwinding-info`
 
 ### `--prof`
-
-### `--security-revert`
 
 ### `--stack-trace-limit=limit`
 
