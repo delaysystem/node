@@ -192,7 +192,7 @@ class MessagePortData : public TransferData {
 
   // Removes any possible sibling. This is thread-safe (it acquires both
   // `sibling_mutex_` and `mutex_`), and has to be because it is called once
-  // the corresponding JS handle handle wants to close
+  // the corresponding JS handle wants to close
   // which can happen on either side of a worker.
   void Disentangle();
 

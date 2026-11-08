@@ -92,7 +92,7 @@ void HasOpenSSLErrorForTesting(const FunctionCallbackInfo<Value>& args) {
 // I/O quickly enough with X509_STORE_CTX_ APIs in this callback,
 // we ignore preverify_ok errors here and let the handshake continue.
 // In other words, this VerifyCallback is a non-op. It is imperative
-// that the user user Connection::VerifyError after the `secure`
+// that the user use Connection::VerifyError after the `secure`
 // callback has been made.
 int VerifyCallback(int preverify_ok, X509_STORE_CTX* ctx) {
   // From https://www.openssl.org/docs/man3.0/man3/SSL_verify_cb:
@@ -660,7 +660,7 @@ void TLSWrap::Start(const FunctionCallbackInfo<Value>& args) {
 
   // Send ClientHello handshake
   CHECK(wrap->is_client());
-  // Seems odd to read when when we want to send, but SSL_read() triggers a
+  // Seems odd to read when we want to send, but SSL_read() triggers a
   // handshake if a session isn't established, and handshake will cause
   // encrypted data to become available for output.
   wrap->ClearOut();
@@ -1208,9 +1208,9 @@ int TLSWrap::DoWrite(WriteWrap* w,
   int written = 0;
 
   // It is common for zero length buffers to be written,
-  // don't copy data if there there is one buffer with data
+  // don't copy data if there is one buffer with data
   // and one or more zero length buffers.
-  // _http_outgoing.js writes a zero length buffer in
+  // _http_outgoing.js writes a zero length buffer
   // in OutgoingMessage.prototype.end.  If there was a large amount
   // of data supplied to end() there is no sense allocating
   // and copying it when it could just be used.

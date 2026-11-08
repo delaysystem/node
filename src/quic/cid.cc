@@ -123,7 +123,7 @@ class RandomCIDFactory final : public CID::Factory {
   void maybe_refresh_pool(size_t length_hint) const {
     // We generate a pool of random data kPoolSize in length
     // and pull our random CID from that. If we don't have
-    // enough random random remaining in the pool to generate
+    // enough random remaining in the pool to generate
     // a CID of the requested size, we regenerate the pool
     // and reset it to zero.
     if (pos_ + length_hint > kPoolSize) {

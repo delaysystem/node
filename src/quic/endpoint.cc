@@ -1756,7 +1756,7 @@ void Endpoint::Receive(const uint8_t* data,
 
     // The stateless reset token itself is the *final*
     // NGTCP2_STATELESS_RESET_TOKENLEN bytes in the received packet. If it is a
-    // stateless reset then then rest of the bytes in the packet are garbage
+    // stateless reset then the rest of the bytes in the packet are garbage
     // that we'll ignore.
     const uint8_t* token_pos =
         pkt_data + (pkt_len - NGTCP2_STATELESS_RESET_TOKENLEN);

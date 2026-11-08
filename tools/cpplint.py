@@ -4410,7 +4410,7 @@ def CheckOperatorSpacing(filename, clean_lines, linenum, error):
     elif not re.match(r"#.*include", line):
         # Look for < that is not surrounded by spaces.  This is only
         # triggered if both sides are missing spaces, even though
-        # technically should should flag if at least one side is missing a
+        # technically should flag if at least one side is missing a
         # space.  This is done to avoid some false positives with shifts.
         match = re.match(r"^(.*[^\s<])<[^\s=<,]", line)
         if match:
