@@ -1263,7 +1263,7 @@ in order to be used.
 ## The `Module` object
 
 This section was moved to
-[Modules: `module` core module](module.md#the-module-object).
+[Modules: `module` core module](module.md#class-module).
 
 <!-- Anchors to make sure old links find a target -->
 
