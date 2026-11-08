@@ -141,7 +141,7 @@ class Session final : public AsyncWrap, private SessionTicket::AppData::Source {
     uint32_t min_version = NGTCP2_PROTO_VER_MIN;
 
     // By default a client session will ignore the preferred address
-    // advertised by the the server. This option is only relevant for
+    // advertised by the server. This option is only relevant for
     // client sessions.
     PreferredAddress::Policy preferred_address_strategy =
         PreferredAddress::Policy::IGNORE_PREFERRED;

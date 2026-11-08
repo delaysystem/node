@@ -1127,7 +1127,7 @@ static MaybeLocal<Value> GetX509NameObject(Environment* env,
 
   Local<Value> v8_name;
   Local<Value> v8_value;
-  // Note the the resulting object uses a null prototype.
+  // Note the resulting object uses a null prototype.
   Local<Object> result =
       Object::New(env->isolate(), Null(env->isolate()), nullptr, nullptr, 0);
   if (result.IsEmpty()) return {};

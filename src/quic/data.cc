@@ -467,7 +467,7 @@ MaybeLocal<Value> QuicError::ToV8Value(Environment* env) const {
 
   // Note that per the QUIC specification, the reason, if present, is
   // expected to be UTF-8 encoded. The spec uses the term "SHOULD" here,
-  // which means that is is entirely possible that some QUIC implementation
+  // which means that it is entirely possible that some QUIC implementation
   // could choose a different encoding, in which case the conversion here
   // will produce garbage. That's ok though, we're going to use the default
   // assumption that the impl is following the guidelines.

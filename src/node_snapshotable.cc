@@ -1113,9 +1113,9 @@ ExitCode BuildSnapshotWithoutCodeCache(
     }
 
     // Drain the loop and platform tasks before creating a snapshot. This is
-    // necessary to ensure that the no roots are held by the the platform
+    // necessary to ensure that no roots are held by the platform
     // tasks, which may reference objects associated with a context. For
-    // example, a WeakRef may schedule an per-isolate platform task as a GC
+    // example, a WeakRef may schedule a per-isolate platform task as a GC
     // root, and referencing an object in a context, causing an assertion in
     // the snapshot creator.
     ExitCode exit_code =
