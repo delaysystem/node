@@ -400,7 +400,7 @@ can be accessed using the `process.execArgv` property:
 console.log(process.execArgv);
 // Prints: ['--no-warnings', '--max-old-space-size=2048']
 console.log(process.argv);
-// Prints ['/path/to/sea', 'path/to/sea', 'user-arg1', 'user-arg2']
+// Prints ['/path/to/sea', '/path/to/sea', 'user-arg1', 'user-arg2']
 ```
 
 The user-provided arguments are in the `process.argv` array starting from index 2,
@@ -516,7 +516,7 @@ return a copy. Instead, it returns the raw asset bundled inside the executable.
 
 For now, users should avoid writing to the returned array buffer. If the
 injected section is not marked as writable or not aligned properly,
-writes to the returned array buffer is likely to result in a crash.
+writes to the returned array buffer are likely to result in a crash.
 
 * `key`  {string} the key for the asset in the dictionary specified by the
   `assets` field in the single-executable application configuration.
@@ -743,7 +743,7 @@ For example, with [postject][]:
    the following options:
 
    * `hello` / `hello.exe` - The name of the copy of the `node` executable
-     created in step 4.
+     created in step 1 above.
    * `NODE_SEA_BLOB` - The name of the resource / note / section in the binary
      where the contents of the blob will be stored.
    * `sea-prep.blob` - The name of the blob created in step 1.
