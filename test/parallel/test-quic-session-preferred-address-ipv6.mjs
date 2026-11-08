@@ -3,7 +3,7 @@
 // Test: Create two listening ipv6 endpoints, one secondary and one
 // preferred. Initiate a connection with the secondary, with
 // preferred advertised. Client should automatically migrate
-// to the preferred address without interupting data flow.
+// to the preferred address without interrupting data flow.
 
 import { hasQuic, skip, mustCall } from '../common/index.mjs';
 import assert from 'node:assert';
